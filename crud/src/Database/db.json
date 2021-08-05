@@ -1,0 +1,53 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "hello",
+      "email": "hello@gmail.com",
+      "city": "Indore",
+      "field": "IT"
+    },
+    {
+      "id": 3,
+      "name": "bye",
+      "email": "bye@gmail.com",
+      "city": "Indore",
+      "field": "IT"
+    },
+    {
+      "id": 4,
+      "name": "shivam",
+      "email": "shi@gmail.com",
+      "city": "Indore",
+      "field": "IT"
+    },
+    {
+      "name": "vaibhav apurva",
+      "email": "happp@gmail.com",
+      "city": "dewa",
+      "field": "eng",
+      "id": 5
+    },
+    {
+      "name": "visnu sharma",
+      "email": "viby@gmail.com",
+      "city": "twfydw",
+      "field": "lmdskld",
+      "id": 6
+    },
+    {
+      "name": "vAIBHAV",
+      "email": "Shanna@melissa.tv",
+      "city": "dewas",
+      "field": "its",
+      "id": 7
+    },
+    {
+      "name": "vaibhva ",
+      "email": "vaibhav@gmail.com",
+      "city": "dewas",
+      "field": "it",
+      "id": 8
+    }
+  ]
+}
