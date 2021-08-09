@@ -51,6 +51,7 @@ const AllUsers =()=>{
                             <td>{user.email}</td>
                             <td>{user.city}</td>
                             <td>{user.field}</td>
+                            <td>{user.password}</td>
                             <td> <button onClick={() => onClickRecord(user._id)}> Edit </button></td>
                             <td> <button variant="dark" onClick={() => onClickDelete(user._id)}> Delete </button></td>
                         </tr>

@@ -24,6 +24,8 @@ const EditUser =()=>{
         dispatch(requestGetUsersid(id));
     }, []);
     const users = useSelector((state => state.records));
+    
+
     console.log("dtata com ",users);
    
     const onValueChange=(e)=>{
@@ -39,7 +41,7 @@ const EditUser =()=>{
         <>
             <h1> Edit User</h1>
             <form onSubmit={() => editUserDetails()} >
-                name:<input name="name"  defaultValue={users.name}type="text" placeholder="enter you name" onChange={(e)=>onValueChange(e)}/>
+                name:<input name="name"  value={users.name}type="text" placeholder="enter you name" onChange={(e)=>onValueChange(e)}/>
                 <br></br>
                 Email:<input name="email" type="email"defaultValue={users.email}  placeholder="enter you email " onChange={(e)=>onValueChange(e)} />
                 <br></br>

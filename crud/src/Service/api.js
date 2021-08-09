@@ -42,6 +42,11 @@ export const addUser =async(user)=>{
     return await axios.post(`${url}/add`, user);
 }
 
+export const loginUser =async(login)=>{
+    console.log(login)
+    return await axios.post(`${url}/signin`, login);
+}
+
 
 export const editUser = async(id , user)=>{
     return await axios.put(`${url}/${id}`, user)
