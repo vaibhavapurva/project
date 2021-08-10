@@ -10,6 +10,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import user from './reducer';
 import SignIn from './Components/SignIn';
+import Logout from './Components/Logout';
 
 const store = createStore(user, applyMiddleware(thunk));
 function App() {
@@ -20,11 +21,14 @@ function App() {
             <Link to="/signin">SignIn</Link>
            <Link to="/all">AllUsers</Link>
             <Link to="/add">Adduser</Link>
+            <Link to="/logout">Logout</Link>
         <Switch> 
         <Route exact path='/' component={SignUp}></Route>
         <Route exact path="/signin" component={SignIn}></Route>
         <Route exact path="/all" component={AllUsers}></Route>
         <Route exact path="/add" component={AddUser}></Route>
+        
+        <Route exact path="/logout" component={Logout}></Route>
         <Route exact path="/edit/:id" component={EditUser}></Route>
         <Route component={NotFound}/>
         </Switch> 

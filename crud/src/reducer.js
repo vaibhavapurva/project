@@ -1,8 +1,9 @@
-import { SET_USERS , EDIT_USERS } from "./actions";
+import { SET_USERS , EDIT_USERS, LOGIN_USERS } from "./actions";
 
 const initialState={
     users :[],
     records: {},
+    login:{},
 }
 
 
@@ -19,6 +20,13 @@ function user(state = initialState  , action){
             return {
                 ...state,
                 records: { ...state.records, ...action.payload },
+
+            }
+        case LOGIN_USERS:
+            
+            return {
+                ...state,
+                login: { ...state.login, ...action.payload },
 
             }
         default:

@@ -1,6 +1,7 @@
 import axios from 'axios';
-import { setUser , editUsers } from '../actions';
+import { setUser , editUsers, loginUsers } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from "react-router-dom";
 
 const url = "http://localhost:9000/users";
 const request = axios.create({
@@ -16,7 +17,7 @@ export const getUsers =() =>async(dispatch , getState)=>{
     try{
         console.log("api run")
         const response = await axios.get(url);
-        console.log(response)
+        
         dispatch(setUser(response.data));
     }catch(err){
         console.log(err)
@@ -42,9 +43,21 @@ export const addUser =async(user)=>{
     return await axios.post(`${url}/add`, user);
 }
 
+// export const loginUser =async(login)=>{
+//     console.log(login)
+//     return await axios.post(`${url}/signin`, login);
+// }
+
+
+
+
 export const loginUser =async(login)=>{
-    console.log(login)
-    return await axios.post(`${url}/signin`, login);
+    const res=  await axios.post(`${url}/signin`, login);
+    console.log(res.status);
+    console.log(res.data);
+    // console.log(res.token)
+    window.localStorage.setItem("wvt_token",res.data.token)
+    return res
 }
 
 

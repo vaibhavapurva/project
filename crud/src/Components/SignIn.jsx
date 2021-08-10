@@ -2,34 +2,44 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { loginUser } from "../Service/api";
+import {useDispatch ,useSelector} from 'react-redux';
 
-const initialValues={
-    email:"",
-    password:"",
+const initialValues = {
+    email: "",
+    password: "",
 }
-const SingIn =()=>{
-
-    const [login , setLogin] = useState(initialValues);
-    const { email , password} = login;
-     const history = useHistory()
-    const onValueChange=(e)=>{
-        setLogin({...login , [e.target.name]:e.target.value})
+const SingIn = () => {
     
+
+    const [login, setLogin] = useState(initialValues);
+    const { email, password } = login;
+    const history = useHistory()
+    const onValueChange = (e) => {
+        setLogin({ ...login, [e.target.name]: e.target.value })
+
     }
-    const addUserDetails = ()=>{
-         loginUser(login);
-        history.push('/all')
+    const addUserDetails = () => {
+        const a = loginUser(login);
+        console.log("=============================")
+        console.log(a);
+        console.log("========================================")
+        if(a.status ===200 ){
+            history.push("/")
+        }else{
+            history.push("/all")
+        }
     }
-    return(
+
+    return (
         <>
-        <h1> SignUp </h1>
-        <form onSubmit={() => addUserDetails()} >
-                Email:<input name="email" type="email"  placeholder="enter you email " onChange={(e)=>onValueChange(e)} value={email}/>
+            <h1> SignUp </h1>
+            <form onSubmit={() => addUserDetails()} >
+                Email:<input name="email" type="email" placeholder="enter you email " onChange={(e) => onValueChange(e)} value={email} />
                 <br></br>
-                password:<input name="password" type="password" placeholder="enter password " onChange={(e)=>onValueChange(e)} value={password} />
+                password:<input name="password" type="password" placeholder="enter password " onChange={(e) => onValueChange(e)} value={password} />
                 <br>
                 </br>
-                <button onClick={()=> addUserDetails()}  variant="primary" type="submit" >Add User  </button>
+                <button onClick={() => addUserDetails()} variant="primary" type="submit" >Add User  </button>
             </form>
 
         </>
