@@ -1,13 +1,17 @@
 export const SET_USERS = 'SET_USERS';
 export const EDIT_USERS = "EDIT_USERS";
-export const LOGIN_USERS = "LOGIN_USERS";
+export const SIGNIN_USERS ="SIGNIN_USERS";
+
+
 
 
 
 
 export const setUser =(payload)=>{
+    window.localStorage.setItem('jwt_token' , payload.token);
     return{
         type:SET_USERS,
+        
         payload :payload
     }
 }
@@ -21,10 +25,9 @@ export const editUsers= (payload)=>{
 }
 
 
-export const loginUsers= (payload)=>{
+export const SignInUser= (payload)=>({
+    type:SIGNIN_USERS ,
+    payload:payload
+})
 
-    return {
-        type : LOGIN_USERS,
-        payload : payload
-    }
-}
+

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { addUser } from "../Service/api";
+import {useDispatch ,useSelector} from 'react-redux';
 
 const initialValues={
     name:"",
@@ -25,6 +26,9 @@ const SignUp =()=>{
          addUser(user);
         history.push('/signin')
     }
+    const userss = useSelector((state => state.token));
+    console.log("==================");
+    console.log("ye hi dekhna hai",userss);
     return(
         <>
         <h1> SignUp </h1>

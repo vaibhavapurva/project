@@ -10,7 +10,7 @@ const initialValues = {
 }
 const SingIn = () => {
     
-
+    const dispatch = useDispatch();
     const [login, setLogin] = useState(initialValues);
     const { email, password } = login;
     const history = useHistory()
@@ -19,15 +19,10 @@ const SingIn = () => {
 
     }
     const addUserDetails = () => {
-        const a = loginUser(login);
-        console.log("=============================")
-        console.log(a);
-        console.log("========================================")
-        if(a.status ===200 ){
-            history.push("/")
-        }else{
-            history.push("/all")
-        }
+        // const a = loginUser(login);
+       dispatch(loginUser(login))
+       history.push("/all");
+
     }
 
     return (

@@ -1,7 +1,8 @@
 import axios from 'axios';
-import { setUser , editUsers, loginUsers } from '../actions';
+import { setUser , editUsers, SignInUser } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
+import SingIn from '../Components/SignIn';
 
 const url = "http://localhost:9000/users";
 const request = axios.create({
@@ -51,13 +52,26 @@ export const addUser =async(user)=>{
 
 
 
-export const loginUser =async(login)=>{
-    const res=  await axios.post(`${url}/signin`, login);
-    console.log(res.status);
-    console.log(res.data);
-    // console.log(res.token)
-    window.localStorage.setItem("wvt_token",res.data.token)
-    return res
+// export const loginUser =async(login)=>{
+//     const res=  await axios.post(`${url}/signin`, login);
+//     console.log(res.status);
+//     console.log(res.data);
+//     // console.log(res.token)
+//     window.localStorage.setItem("jwt_token",res.data.token)
+//     return res
+// }
+
+
+export const loginUser=(login)=> async(dispatch, getState)=>{
+    console.log(login);
+    try{
+        const response = await axios.post(`${url}/signin`,login);
+        console.log(response);
+        // window.localStorage.setItem('jwt_token' , response.data.token);
+        dispatch(SignInUser(response.data));
+    }catch(err){
+        console.log(err);
+    }
 }
 
 

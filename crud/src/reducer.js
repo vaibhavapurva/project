@@ -1,14 +1,23 @@
-import { SET_USERS , EDIT_USERS, LOGIN_USERS } from "./actions";
+import { SET_USERS , EDIT_USERS, LOGIN_USERS , SET_USER_ADD, SIGNIN_USERS } from "./actions";
 
 const initialState={
     users :[],
     records: {},
-    login:{},
+    token:localStorage.getItem("jwt_token")
+     
 }
 
 
 function user(state = initialState  , action){
     switch(action.type){
+        case SIGNIN_USERS:
+            console.log('loginn', action.payload)
+            return{
+                ...state,
+                
+                token :action.payload.token,
+            }
+
         case SET_USERS:
             return{
 
@@ -22,13 +31,7 @@ function user(state = initialState  , action){
                 records: { ...state.records, ...action.payload },
 
             }
-        case LOGIN_USERS:
-            
-            return {
-                ...state,
-                login: { ...state.login, ...action.payload },
-
-            }
+        
         default:
             return state
     }
