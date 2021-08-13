@@ -4,20 +4,20 @@ import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router';
 
 
-const PublicRoutes =({component : Component, ...rest})=>{
-    const token =useSelector((state => state.token));
-    console.log("private",token)
-    return(
+const PublicRoutes = ({ component: Component, ...rest }) => {
+    const token = useSelector((state => state.token));
+    console.log("private", token)
+    return (
         <Route
-        {...rest}
-        render={props=>(
-            token?
-                <Redirect to="/all"/>
-                
-            :
-                <Component{...rest}{...props}/> 
-            
-        )}
+            {...rest}
+            render={props => (
+                token ?
+                    <Redirect to="/all" />
+
+                    :
+                    <Component{...rest}{...props} />
+
+            )}
         />
     );
 };

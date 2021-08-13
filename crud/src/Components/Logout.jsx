@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
-const Logout=()=>{
-    useEffect(()=>{
+import { useEffect } from "react";
+const Logout = () => {
+    useEffect(() => {
         localStorage.removeItem('jwt_token');
 
-    },[])
+    }, [])
     localStorage.removeItem('jwt_token');
-    return(
+    return (
         <>
-        <h1> LOgout page</h1>
+            <h1> LOgout page</h1>
 
         </>
 
