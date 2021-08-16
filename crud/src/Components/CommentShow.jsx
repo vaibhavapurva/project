@@ -4,52 +4,45 @@ import { useEffect, useState } from "react";
 import { requestGetCommentId } from "../Service/api";
 
 
-const CommentShow=()=>{
+const CommentShow = () => {
     const { id } = useParams();
-    const dispatch =useDispatch();
+    const dispatch = useDispatch();
     console.log(id)
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(requestGetCommentId());
-    },[]);
-    const data = useSelector((state => state.comment));
-    console.log(data);
-    return(
+    }, []);
+    const comments = useSelector((state => state.comment));
+    console.log("try krte hai",comments);
+    return (
         <>
-        <h1> Comment Show</h1>
-        <div>
-            <table>
-                <thead>
-                <tr>
-                    <th>PostId</th> 
-                    <th> id </th>
-                    <th>Comment</th>
-                    
-                </tr>
-                </thead>
-                <tbody>
+            <h1> Comment Show</h1>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            {/* <th>PostId</th>  */}
+                            <th> id </th>
+                            <th>Comment</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
                         {
-                            data.map(post => (
+                            comments.map(post => (
                                 <tr>
-                                    <td>{post.PostId}</td>
+                                    {/* <td>{post.PostId}</td> */}
                                     <td>{post._id}</td>
                                     <td>{post.body}</td>
 
                                 </tr>
                             ))
                         }
+                        </tbody>
+
+                </table>
 
 
-
-
-
-
-                 </tbody>
-                
-            </table>
-
-
-        </div>
-        
+            </div>
         </>
     )
 }

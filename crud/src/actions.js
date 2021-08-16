@@ -10,6 +10,16 @@ export const EDIT_POST = "EDIT_POST";
 export const SIGNIN_USERS = "SIGNIN_USERS";
 export const ADD_POST = "ADD_POST";
 export const SET_POST = "SET_POST";
+export const LOGOUT = "LOGOUT";
+
+
+export const logout = (payload)=>{
+    console.log("action logout");
+    return{
+        type : LOGOUT,
+        payload :payload
+    }
+}
 
 
 export const setAddUser = (payload) => {
