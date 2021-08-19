@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { LinearProgress } from '@material-ui/core';
 
 const NavBar = () => {
     
@@ -26,6 +27,7 @@ const NavBar = () => {
                     <Link to="/addpost">AddPost</Link>&nbsp;&nbsp;
                     <Link to="/auto">Search</Link>&nbsp;&nbsp;
                     <Link to="/logout">Logout</Link>&nbsp;&nbsp;
+                    <Link to="/task">Task</Link> &nbsp; &nbsp;
                 </li>
 
             )}

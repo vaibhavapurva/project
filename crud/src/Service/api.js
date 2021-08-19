@@ -118,6 +118,18 @@ export const addPostUser = (post) => async (dispatch, getState) => {
         console.log(err);
     }
 }
+
+export const taskUser=(user)=> async(dispatch,getState)=>{
+    console.log("api task", user);
+    try{
+        const response = await axios.post(`${url}/addtask`,user);
+        console.log(response.data);
+    }catch(err){
+        console.log(err);
+
+    }
+}
+
 export const addUserComment = (comment) => async (dispatch, getState) => {
     try {
         const response = await axios.post(`${url}/addComment`, comment);

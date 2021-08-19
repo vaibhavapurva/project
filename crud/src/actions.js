@@ -12,7 +12,8 @@ export const ADD_POST = "ADD_POST";
 export const SET_POST = "SET_POST";
 export const LOGOUT = "LOGOUT";
 export const SEARCH_DATA = "SEARCH_DATA";
-
+export const ADD_TASK_DATA = "SET_ADD_DATA";
+ 
 export const searchData =(payload)=>{
     return{
         type:SEARCH_DATA,
@@ -56,6 +57,14 @@ export const setAddPost = (payload) => {
     return {
         type: SET_ADD_POST,
         payload: payload,
+    }
+}
+
+export const addTaskData =(payload)=>{
+    console.log("eeeeeeee",payload)
+    return{
+        type : ADD_TASK_DATA,
+        payload :payload
     }
 }
 

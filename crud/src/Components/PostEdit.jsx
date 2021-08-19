@@ -22,7 +22,7 @@ const PostEdit = () => {
     // console.log(data);
     const editPost = () => {
         dispatch(editPostById(id, post))
-        history.push("/post");
+        // history.push("/post");
     }
 
     return (

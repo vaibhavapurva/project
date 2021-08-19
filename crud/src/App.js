@@ -5,6 +5,7 @@ import Comment from './Components/Comment';
 import AddUser from './Components/Adduser';
 import CommentShow from './Components/CommentShow';
 import AutoComplete from './Components/AutoComplete';
+import Task from "./Components/Task";
 import PostEdit from './Components/PostEdit';
 import NotFound from './Components/NotFound';
 import NavBar from './Components/NavBar';
@@ -73,6 +74,7 @@ function App() {
             <PrivateRoutes exact path="/updatePost" component={UpdatePost} />
             <PrivateRoutes exact path="/postedit/:id" component={PostEdit} />
             <PrivateRoutes exact path="/auto" component={AutoComplete} />
+            <PrivateRoutes exact path="/task" component={Task}/>
             <Route component={NotFound} />
           </Switch>
         </BrowserRouter>

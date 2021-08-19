@@ -1,7 +1,7 @@
-import { SET_USERS, SET_ADD_USERS, EDIT_USERS, SIGNIN_USERS, ADD_POST, SET_POST, SET_LOGIN_DATA, SET_ADD_POST, SET_ADD_COMMENT, EDIT_POST, SET_EDIT_POST, COMMENT_BY_ID, LOGOUT  ,SEARCH_DATA} from "./actions";
+import { SET_USERS, SET_ADD_USERS, EDIT_USERS, SIGNIN_USERS, ADD_POST, SET_POST, SET_LOGIN_DATA, SET_ADD_POST, SET_ADD_COMMENT, EDIT_POST, SET_EDIT_POST, COMMENT_BY_ID, LOGOUT  ,SEARCH_DATA , ADD_TASK_DATA} from "./actions";
 
 const initialState = {
-    search:"",
+    search:[],
     users: [],
     records: {},
     comment: [],
@@ -26,6 +26,14 @@ const initialState = {
         body: "",
         userId: localStorage.getItem("user_id"),
     },
+    task:{
+        title:"",
+        date:"",
+        startTime:"",
+        endTime:"",
+        user:localStorage.getItem("user_name"),
+
+    },
     setComment: {
         PostId: localStorage.getItem("postid"),
         body: "",
@@ -44,6 +52,7 @@ function user(state = initialState, action) {
                 token: action.payload.token,
                 name: action.payload.name,
             }
+        
         case LOGOUT:
             return{
                 ...state,
@@ -120,7 +129,11 @@ function user(state = initialState, action) {
                 ...state,
                 search :action.payload
             }
-
+        case ADD_TASK_DATA:
+            return{
+                ...state,
+                task : action.payload
+            }
         default:
             return state
     }
