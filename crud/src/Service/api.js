@@ -58,16 +58,17 @@ export const requestGetpostId = (id) => async (dispatch, getState) => {
     }
 }
 
-export const requestGetCommentId = () => async (dispatch, getState) => {
+export const requestGetCommentId = (PostId) => async (dispatch, getState) => {
+    console.log("api comment ", PostId)
     try {
-        const response = await request.get('/users/getComment');
+        const response = await request.get(`/users/getComment/${PostId}`);
         console.log(response.data)
         dispatch(commentById(response.data));
         return response;
 
     } catch (err) {
         console.log("errr get coment");
-        console.log(err);
+        // console.log(err);
     }
 }
 

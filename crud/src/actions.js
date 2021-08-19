@@ -11,7 +11,14 @@ export const SIGNIN_USERS = "SIGNIN_USERS";
 export const ADD_POST = "ADD_POST";
 export const SET_POST = "SET_POST";
 export const LOGOUT = "LOGOUT";
+export const SEARCH_DATA = "SEARCH_DATA";
 
+export const searchData =(payload)=>{
+    return{
+        type:SEARCH_DATA,
+        payload:payload
+    }
+}
 
 export const logout = (payload)=>{
     console.log("action logout");

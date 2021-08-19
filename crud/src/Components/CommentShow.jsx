@@ -9,7 +9,7 @@ const CommentShow = () => {
     const dispatch = useDispatch();
     console.log(id)
     useEffect(() => {
-        dispatch(requestGetCommentId());
+        dispatch(requestGetCommentId(id));
     }, []);
     const comments = useSelector((state => state.comment));
     console.log("try krte hai",comments);
@@ -28,16 +28,16 @@ const CommentShow = () => {
                     </thead>
                     <tbody>
                         {
-                            comments.map(post => (
+                            comments.map(data => (
                                 <tr>
-                                    {/* <td>{post.PostId}</td> */}
-                                    <td>{post._id}</td>
-                                    <td>{post.body}</td>
+                                   
+                                    <td>{data._id}</td>
+                                    <td>{data.body}</td>
 
                                 </tr>
                             ))
                         }
-                        </tbody>
+                    </tbody>
 
                 </table>
 

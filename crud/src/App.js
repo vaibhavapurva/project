@@ -7,6 +7,7 @@ import CommentShow from './Components/CommentShow';
 import AutoComplete from './Components/AutoComplete';
 import PostEdit from './Components/PostEdit';
 import NotFound from './Components/NotFound';
+import NavBar from './Components/NavBar';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import EditUser from './Components/EditUser';
 import { createStore, applyMiddleware } from 'redux';
@@ -33,7 +34,7 @@ function App() {
     <div className="text-center">
       <Provider store={store}>
         <BrowserRouter>
-        {!token && 
+        {/* {!token && 
         (
           <li>
           <Link to="/">SignUp</Link>
@@ -49,7 +50,8 @@ function App() {
           <Link to="/addpost">AddPost</Link> 
           <Link to="/auto">Search</Link> 
           </li>       
-        )}
+        )} */}
+        <NavBar/>
           {/* <Link to="/">SignUp</Link>
           <Link to="/signin">SignIn</Link> */}
           {/* <Link to="/all">AllUsers</Link>
